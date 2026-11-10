@@ -14,8 +14,10 @@ Le workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) prépar
 
 1. Créer sur GitHub un dépôt pour le site. Pour bénéficier de GitHub Pages avec GitHub Free, le dépôt doit être public ; vérifie qu'aucune donnée privée ne se trouve dans les fichiers avant la publication.
 2. Ajouter le contenu de ce dossier au dépôt, puis envoyer le commit sur la branche `main`.
-3. Dans les paramètres du dépôt, ouvrir **Settings → Pages**, puis choisir **GitHub Actions** comme source de publication.
+3. Dans les paramètres du dépôt, ouvrir **Settings → Pages**, puis choisir **GitHub Actions** comme source de publication avant le premier lancement.
 4. Consulter **Actions** pour suivre le premier déploiement. L'adresse du site apparaît sous **Settings → Pages** une fois le workflow terminé.
+
+Si le premier lancement échoue avec « repository has Pages enabled and configured », vérifier cette source de publication, puis relancer le workflow depuis **Actions → Deploy static site to GitHub Pages → Re-run jobs**.
 
 Ensuite, chaque push sur `main` déclenche une nouvelle publication. Le workflow peut aussi être lancé manuellement depuis **Actions**.
 
