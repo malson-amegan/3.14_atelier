@@ -68,6 +68,7 @@ menuSearch.addEventListener("input", filterMenu);
 filterMenu();
 
 const reservationForm = document.querySelector("#reservation-form");
+const reservationLocation = document.querySelector("#reservation-location");
 const reservationDate = document.querySelector("#reservation-date");
 const reservationStatus = document.querySelector("#reservation-status");
 const localToday = new Date();
@@ -82,15 +83,20 @@ reservationForm.addEventListener("submit", (event) => {
   if (!reservationForm.reportValidity()) return;
 
   const formData = new FormData(reservationForm);
+  const locations = {
+    lome: { label: "Lomé — Hanoukopé", whatsapp: "22879519797" },
+    cotonou: { label: "Cotonou — Haie Vive", whatsapp: "2290198314314" },
+  };
+  const selectedLocation = locations[formData.get("location")];
   const date = new Date(`${formData.get("date")}T12:00:00`);
   const formattedDate = new Intl.DateTimeFormat("fr-FR", { dateStyle: "full" }).format(date);
   const message = [
-    "Bonjour 3.14 Atelier, je souhaite réserver une table.",
+    `Bonjour 3.14 Atelier ${selectedLocation.label}, je souhaite réserver une table.`,
     `Date : ${formattedDate}`,
     `Heure : ${formData.get("time")}`,
     `Nombre de personnes : ${formData.get("guests")}`,
   ].join("\n");
-  const whatsappUrl = `https://wa.me/22898468083?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/${selectedLocation.whatsapp}?text=${encodeURIComponent(message)}`;
   const whatsappWindow = window.open(whatsappUrl, "_blank");
   if (whatsappWindow) whatsappWindow.opener = null;
 

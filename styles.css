@@ -3,8 +3,8 @@
   --ink: #171914;
   --muted: #77786f;
   --paper: #f5f3ed;
-  --green: #163d2b;
-  --deep-green: #10291e;
+  --green: #000000;
+  --deep-green: #000000;
   --gold: #c7a86c;
   --line: rgba(23, 25, 20, .15);
   --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -12,7 +12,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 body:has(.lightbox[open]) { overflow: hidden; }
 img { display: block; width: 100%; }
@@ -22,8 +22,8 @@ button { font: inherit; }
 
 .skip-link { position: fixed; z-index: 20; top: 10px; left: 10px; padding: 12px 16px; transform: translateY(-150%); color: #fff; background: var(--green); }
 .skip-link:focus { transform: translateY(0); }
-.site-header { position: absolute; z-index: 5; top: 0; left: 0; width: 100%; color: #fff; }
-.header-inner { display: flex; align-items: center; justify-content: space-between; width: min(1320px, calc(100% - 96px)); height: 100px; margin: auto; border-bottom: 1px solid rgba(255,255,255,.26); }
+.site-header { position: fixed; z-index: 10; top: 0; left: 0; width: 100%; color: #fff; background: rgba(0,0,0,.91); border-bottom: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(12px); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; width: min(1320px, calc(100% - 96px)); height: 82px; margin: auto; }
 .brand { display: inline-flex; align-items: center; gap: 12px; }
 .brand-mark { display: inline-flex; width: 49px; height: 49px; flex-direction: column; align-items: center; justify-content: center; border: 1px solid currentColor; line-height: 1; }
 .brand-mark > span { font-size: 19px; font-weight: 400; letter-spacing: -.08em; }
@@ -102,7 +102,7 @@ h1 em, h2 em { color: var(--gold); font-weight: 500; }
 .menu-price span { font-size: 9px; }
 .menu-footnote { margin: 20px 0 0; color: var(--muted); font-size: 10px; line-height: 1.7; }
 .menu-empty { margin: 24px 0; color: var(--muted); font-size: 13px; }
-.reservation-section { color: #fff; background: #182b21; }
+.reservation-section { color: #fff; background: #000000; }
 .reservation-inner { display: grid; grid-template-columns: .9fr 1fr; align-items: center; gap: clamp(45px, 8vw, 105px); padding-block: 105px; }
 .reservation-copy h2 em { color: var(--gold); }
 .reservation-copy > p:not(.eyebrow) { max-width: 410px; margin: 22px 0; color: rgba(255,255,255,.68); font-size: 13px; line-height: 1.8; }
@@ -110,10 +110,13 @@ h1 em, h2 em { color: var(--gold); font-weight: 500; }
 .reservation-number a { margin-left: 8px; color: var(--gold); }
 .reservation-form { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; padding: 29px; border: 1px solid rgba(255,255,255,.2); }
 .form-field { display: grid; gap: 8px; }
+.form-field-wide { grid-column: 1 / -1; }
 .form-field:last-of-type { grid-column: 1 / -1; }
 .form-field label { color: rgba(255,255,255,.75); font-size: 10px; }
-.form-field input { width: 100%; height: 47px; padding: 0 12px; border: 1px solid rgba(255,255,255,.24); border-radius: 0; color: #fff; background: rgba(255,255,255,.06); font: inherit; font-size: 12px; color-scheme: dark; }
-.form-field input:focus { border-color: var(--gold); outline: 1px solid var(--gold); }
+.form-field input, .form-field select { width: 100%; height: 47px; padding: 0 12px; border: 1px solid rgba(255,255,255,.24); border-radius: 0; color: #fff; background: rgba(255,255,255,.06); font: inherit; font-size: 12px; color-scheme: dark; }
+.form-field select { cursor: pointer; }
+.form-field option { color: #fff; background: #101010; }
+.form-field input:focus, .form-field select:focus { border-color: var(--gold); outline: 1px solid var(--gold); }
 .reservation-submit { grid-column: 1 / -1; width: 100%; border: 0; cursor: pointer; }
 .reservation-status { grid-column: 1 / -1; margin: 0; color: rgba(255,255,255,.76); font-size: 11px; line-height: 1.6; }
 .reservation-status a { display: inline-block; margin-top: 8px; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
@@ -136,18 +139,27 @@ h1 em, h2 em { color: var(--gold); font-weight: 500; }
 .gallery-open { position: absolute; right: 13px; bottom: 13px; display: grid; width: 34px; height: 34px; place-items: center; color: var(--ink); background: rgba(255,255,255,.92); font-size: 15px; opacity: 0; transform: translateY(5px); transition: .2s ease; }
 .gallery-item:hover .gallery-open, .gallery-item:focus-visible .gallery-open { opacity: 1; transform: translateY(0); }
 
-.visit-section { color: #fff; background: #182b21; }
-.visit-inner { display: grid; grid-template-columns: 1fr .85fr; align-items: center; gap: 90px; padding-block: 110px; }
+.visit-section { color: #fff; background: #000000; }
+.visit-inner { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; gap: 65px; padding-block: 110px; }
 .visit-copy > p:not(.eyebrow) { max-width: 345px; margin: 21px 0 27px; color: rgba(255,255,255,.66); font-size: 13px; line-height: 1.8; }
-.visit-card { padding: 35px 39px; border: 1px solid rgba(255,255,255,.2); }
-.visit-card-row { display: grid; grid-template-columns: 25px 1fr; gap: 15px; padding: 18px 0; }
-.visit-card-row + .visit-card-row { border-top: 1px solid rgba(255,255,255,.13); }
-.visit-icon { color: var(--gold); font-size: 20px; }
-.visit-card-row small { color: var(--gold); font-size: 9px; letter-spacing: .09em; text-transform: uppercase; }
-.visit-card-row p { margin: 8px 0 0; font-family: var(--serif); font-size: 17px; line-height: 1.5; }
-.visit-card-row p span { color: rgba(255,255,255,.56); font-family: var(--sans); font-size: 10px; }
-.visit-card-row p a { transition: color .2s; }
-.visit-card-row p a:hover { color: var(--gold); }
+.location-grid { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+.location-card { min-width: 0; padding: 25px 22px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.025); }
+.location-city { margin: 0 0 13px; color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
+.location-city span { padding-inline: 5px; }
+.location-card h3 { margin: 0 0 14px; font-family: var(--serif); font-size: 22px; font-weight: 500; }
+.location-address { margin: 0; font-size: 12px; line-height: 1.75; }
+.location-landmark, .location-note { margin: 10px 0 18px; color: rgba(255,255,255,.59); font-size: 10px; line-height: 1.7; }
+.location-card h4 { margin: 21px 0 9px; color: var(--gold); font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.opening-hours { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.opening-hours li { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; color: rgba(255,255,255,.7); font-size: 9px; }
+.opening-hours strong { color: #fff; font-size: 9px; font-weight: 500; text-align: right; }
+.opening-hours small { color: rgba(255,255,255,.5); font-size: 8px; font-weight: 400; }
+.location-phone { margin: 20px 0 13px; font-family: var(--serif); font-size: 16px; }
+.location-phone a:hover, .location-actions a:hover { color: #e0c58f; }
+.location-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 19px; }
+.location-actions a { display: inline-flex; min-height: 37px; align-items: center; gap: 13px; padding: 0 11px; border: 1px solid rgba(255,255,255,.35); font-size: 9px; transition: color .2s, border-color .2s; }
+.location-actions a span { color: var(--gold); }
+.location-note { margin-bottom: 0; }
 
 .site-footer { display: grid; min-height: 125px; grid-template-columns: auto 1fr auto auto auto; align-items: center; gap: 25px; padding: 24px max(48px, calc((100% - 1190px) / 2)); color: var(--ink); background: var(--paper); }
 .footer-brand { color: var(--green); }
@@ -173,13 +185,13 @@ h1 em, h2 em { color: var(--gold); font-weight: 500; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 
 @media (max-width: 800px) {
-  .header-inner { width: calc(100% - 44px); height: 78px; }
+  .header-inner { width: calc(100% - 44px); height: 70px; }
   .brand-name { font-size: 19px; }
   .menu-toggle { z-index: 2; display: flex; width: 42px; height: 42px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 1px solid rgba(255,255,255,.5); background: transparent; cursor: pointer; }
   .menu-toggle span { display: block; width: 17px; height: 1px; background: #fff; transition: transform .2s; }
   .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
   .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-  .primary-nav { position: absolute; top: 78px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 12px 22px 22px; background: #14251b; }
+  .primary-nav { position: absolute; top: 70px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 12px 22px 22px; background: #101010; }
   .primary-nav.is-open { display: flex; flex-direction: column; }
   .primary-nav a:not(.nav-call) { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
   .nav-call { margin-top: 16px; text-align: center; }
@@ -205,8 +217,9 @@ h1 em, h2 em { color: var(--gold); font-weight: 500; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 280px 190px 190px; gap: 10px; }
   .gallery-item-large { grid-column: span 2; grid-row: auto; }
   .gallery-item-wide { grid-column: span 2; }
-  .visit-inner { grid-template-columns: 1fr; gap: 45px; padding-block: 78px; }
-  .visit-card { padding: 20px 24px; }
+  .visit-inner { grid-template-columns: 1fr; gap: 37px; padding-block: 78px; }
+  .location-grid { grid-template-columns: 1fr; }
+  .location-card { padding: 24px; }
   .site-footer { grid-template-columns: auto 1fr; gap: 8px 20px; padding: 25px 24px; }
   .site-footer > p { margin: 4px 0; }
   .back-top { justify-self: start; }
@@ -228,7 +241,6 @@ h1 em, h2 em { color: var(--gold); font-weight: 500; }
   .form-field:last-of-type, .reservation-submit, .reservation-status { grid-column: 1; }
   .menu-item { padding: 16px; }
   .gallery-grid { grid-template-rows: 235px 150px 150px; }
-  .visit-card { padding: 15px 18px; }
   .lightbox { width: calc(100% - 18px); padding-inline: 46px; }
   .lightbox-arrow { width: 32px; height: 32px; }
   .lightbox-prev { left: 6px; }

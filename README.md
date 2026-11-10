@@ -1,10 +1,12 @@
-# 3.14 Atelier Lomé
+# 3.14 Atelier — Lomé & Cotonou
 
 Site vitrine statique : aucune dépendance ni commande de compilation n'est nécessaire.
 
 Le menu affiché est une proposition de démonstration non officielle. Les prix fournis sont présentés tels quels ; les autres restent à confirmer par le restaurant.
 
-Le formulaire prépare la réservation (date, heure et nombre de personnes) dans un message WhatsApp destiné au +228 98 46 80 83. Le visiteur doit confirmer l'envoi dans WhatsApp ; aucune réservation n'est enregistrée par le site.
+Le formulaire demande le restaurant, la date, l'heure et le nombre de personnes, puis prépare un message WhatsApp pour l'établissement choisi : Lomé (+228 79 51 97 97) ou Cotonou (+229 01 98 31 43 14). Le visiteur doit confirmer l'envoi dans WhatsApp ; aucune réservation n'est enregistrée par le site.
+
+Le site présente deux adresses : 134 Boulevard du 13 Janvier, Hanoukopé, à Lomé, et Haie Vive, piste Almalco, à Cotonou. Les horaires indiqués concernent uniquement Lomé ; ceux de Cotonou restent à confirmer.
 
 Le menu peut être filtré par catégorie ou recherché par nom et description. Les trois prix fournis sont affichés ; les tarifs absents ne sont pas inventés.
 
@@ -21,12 +23,12 @@ Si le premier lancement échoue avec « repository has Pages enabled and configu
 
 Ensuite, chaque push sur `main` déclenche une nouvelle publication. Le workflow peut aussi être lancé manuellement depuis **Actions**.
 
-Avant la mise en ligne, confirmer auprès du restaurant l'adresse exacte, les horaires, le menu de démonstration et ses prix. Le numéro WhatsApp affiché est celui fourni pour la réservation.
+Les adresses, téléphones et horaires de Lomé sont ceux communiqués pour ce site. Le menu reste une proposition de démonstration et ses tarifs sont à confirmer auprès du restaurant.
 
 ## Informations publiques consultées
 
 - [Instagram de 3.14 Atelier Lomé](https://www.instagram.com/3.14atelierlome/)
-- [Résultats TikTok sur 3.14 Atelier à Lomé](https://www.tiktok.com/discover/3-14-atelier-lom%C3%A9-menu?lang=en) — activité café, restaurant et lounge-bar, secteur Tokoin Séminaire et numéro publié pour les réservations.
+- [Résultats TikTok sur 3.14 Atelier à Lomé](https://www.tiktok.com/discover/3-14-atelier-lom%C3%A9-menu?lang=en) — activité café, restaurant et lounge-bar.
 
 ## Vérification locale
 
